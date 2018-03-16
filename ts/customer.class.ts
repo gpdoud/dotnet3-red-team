@@ -10,5 +10,5 @@ export class customer {
 	}
 	printOut(): void {
 		console.log(`Id =${this.Id},name =${this.name},creditlimit=${this.creditlimit}`);		
-	}	
 	}
+}

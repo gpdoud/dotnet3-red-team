@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var order_class_1 = require("./order.class");
+var customer_class_1 = require("./customer.class");
 var customerData = [
     { id: 10, name: "MAX Technical Training", creditLimit: 10000 },
     { id: 20, name: "Kroger", creditLimit: 100000 },
@@ -19,12 +20,25 @@ var orderData = [
     { id: 800, description: "Order 800", total: 6362.32, customerId: 30 },
     { id: 900, description: "Order 900", total: 4722.55, customerId: 40 }
 ];
-var Customers = {};
-var Orders = {};
+var Orders = [];
+// for (const c of customerData) {
+//    for (const c of customerData) {
+//    }
+//    let customer: customer = new customer(c.id, c.name, c.creditLimit);
+// }
 for (var _i = 0, orderData_1 = orderData; _i < orderData_1.length; _i++) {
     var o = orderData_1[_i];
-    order: order_class_1.Order = new order_class_1.Order();
+    for (var _a = 0, customerData_1 = customerData; _a < customerData_1.length; _a++) {
+        var c = customerData_1[_a];
+        if (c.id == o.customerId) {
+            var mycust = new customer_class_1.customer(c.id, c.name, c.creditLimit);
+        }
+    }
+    var order = new order_class_1.Order(o.id, o.description, o.total, o.customerId, mycust);
+    Orders.push(order);
 }
-for (var _a = 0, customerData_1 = customerData; _a < customerData_1.length; _a++) {
-    var c = customerData_1[_a];
+console.log("-Id-Description------------- Total---- -Customer-------------------------");
+for (var _b = 0, Orders_1 = Orders; _b < Orders_1.length; _b++) {
+    var o = Orders_1[_b];
+    o.printOut();
 }
