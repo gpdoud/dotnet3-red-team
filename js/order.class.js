@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-();
 var Order = /** @class */ (function () {
     function Order(id, description, total, customerid, customer) {
         this.id = id;
@@ -10,7 +9,7 @@ var Order = /** @class */ (function () {
         this.customer = customer;
     }
     Order.prototype.printOut = function () {
-        console.log("id=" + this.id + ", description=" + this.description + ",\n\t\t\ttotal=" + this.total + ", customerid=" + this.customerid + ", customer=$[this.customer}");
+        console.log(this.id + " " + this.description + "               " + this.total + "     " + this.customer.name);
     };
     return Order;
 }());
